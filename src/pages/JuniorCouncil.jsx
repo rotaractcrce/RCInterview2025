@@ -157,15 +157,35 @@ return (
                 type="file"
                 accept=".pdf"
                 multiple
-                onChange={(e) => setUploadedFiles(Array.from(e.target.files))}
+                onChange={(e) => {
+                    const newFiles = Array.from(e.target.files);
+                    setUploadedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+                    // Reset input value to allow re-uploading same file again
+                    e.target.value = null;
+                }}
                 />
+
+
             </label>
 
             {/* Show list of uploaded files */}
             <div className="file-name-list">
-                {uploadedFiles.map((file, index) => (
-                <p key={index} className="file-name">📄 {file.name}</p>
-                ))}
+            {uploadedFiles.map((file, index) => (
+                <div key={index} className="file-entry">
+                📄 {file.name}
+                <span
+                    className="remove-file"
+                    onClick={() => {
+                    setUploadedFiles((prev) =>
+                        prev.filter((_, i) => i !== index)
+                    );
+                    }}
+                >
+                    ❌
+                </span>
+                </div>
+            ))}
             </div>
 
             <a

@@ -258,3 +258,11 @@ input[type='file'] {
 .file-name {
     margin: 2px 0;
 }
+
+.remove-file{
+    color: #ffffff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-right: 0px;
+}
