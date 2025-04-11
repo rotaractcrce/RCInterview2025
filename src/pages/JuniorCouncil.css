@@ -152,6 +152,7 @@ input[type='file']::file-selector-button:hover {
     position: absolute;
     top: 12px;
     left: 10px;
+    color: #ff568e;
 }
 
 .view-pdf-link {

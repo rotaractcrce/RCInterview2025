@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(26, 38, 57, 0.9);
+    background-color: #1a2639e6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,4 +74,41 @@
 
 .close-btn:hover {
     color: #bc6c25;
+}
+
+.credit-box {
+    text-align: center;
+    border-top: 1.5px solid #ff568e;
+    padding: 1rem 0 0.5rem;
+    font-size: 14px;
+    color: #fefae0;
+    font-weight: 400;
+    margin-top: 2rem;
+    background: none;
+}
+
+.credit-box strong {
+    font-weight: 600;
+    color: #ff568e;
+}
+
+.final-submit-btn {
+    display: block;
+    margin: 2rem auto 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fefae0;
+    background-color: #7f2032;
+    border: 2px solid #fefae0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.final-submit-btn:hover {
+    background-color: #1a2639;
+    border-color: #ff568e;
+    color: #ff568e;
 }

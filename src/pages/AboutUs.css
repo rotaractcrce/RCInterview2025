@@ -1,13 +1,19 @@
+/* 🔷 Main About Section Container */
 .about-container {
     padding: 3rem 2rem;
-    background: linear-gradient(to right, rgba(26, 38, 57, 0.9), rgba(26, 38, 57, 0.9)),
-                url('../assets/bg-contact.jpeg') center/cover no-repeat;
-    color: #fefae0;
     height: 800px;
-    border: 2px dashed white;
     border-radius: 16px;
+    border: 2px dashed white;
+    color: #fefae0;
+    background: linear-gradient(
+        to right,
+        rgba(26, 38, 57, 0.9),
+        rgba(26, 38, 57, 0.9)
+    ),
+    url('../assets/bg-contact.jpeg') center/cover no-repeat;
 }
 
+/* 🏷️ Title */
 .about-title {
     text-align: center;
     font-size: 36px;
@@ -16,6 +22,7 @@
     text-transform: uppercase;
 }
 
+/* 🔳 Left & Right Sections */
 .about-sections {
     display: flex;
     flex-wrap: wrap;
@@ -28,6 +35,7 @@
     min-width: 300px;
 }
 
+/* ℹ️ Info Box Styling */
 .info-box {
     background-color: rgba(124, 32, 49, 0.85);
     border: 1px solid #bc6c25;
@@ -49,6 +57,7 @@
     color: #fefae0;
 }
 
+/* 📅 Events Box */
 .events-box {
     background-color: rgba(124, 32, 49, 0.9);
     border: 1px solid #bc6c25;
@@ -64,6 +73,7 @@
     text-align: center;
 }
 
+/* 🧩 Event Grid & Cards */
 .event-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -93,3 +103,27 @@
     color: #fefae0;
     line-height: 1.5;
 }
+
+/* 🖋️ Footer Credit */
+.credit-box {
+    text-align: center;
+    border-top: 2px solid #ff568e;
+    background-color: #7f2031b4;
+    padding: 1rem;
+    font-size: 14px;
+    color: #fefae0;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.credit-box strong {
+    color: #ff568e;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+  

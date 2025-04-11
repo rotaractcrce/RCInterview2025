@@ -63,6 +63,11 @@ return (
             </div>
         </div>
         </div>
+    </div> 
+    <div className="credit-box">
+        <p>
+        Created by <strong>AbuHamza</strong>, <strong>Arnav Ferreira</strong> and <strong>Zebin Anil</strong>
+        </p>
     </div>
     </div>
 );

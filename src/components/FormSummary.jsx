@@ -3,6 +3,17 @@ import './FormSummary.css';
 import Navbar from './Navbar';
 
 const FormSummary = ({ formData, postText, experienceText, selectedCards, onClose }) => {
+const handleFinalSubmit = () => {
+    console.log("Final application submitted:", {
+    ...formData,
+    postText,
+    experienceText,
+    selectedCards,
+    });
+
+    // You can extend this logic later for backend integration
+};
+
 return (
     <>
     <div className="summary-overlay">
@@ -21,7 +32,15 @@ return (
             <div className="bento-tile">🧩 <strong>Applied Posts:</strong> {selectedCards.join(', ')}</div>
             <div className="bento-tile wide">🎯 <strong>Why This Post:</strong> {postText}</div>
             <div className="bento-tile wide">🛠️ <strong>Past Experience:</strong> {experienceText}</div>
-            <div className="bento-tile">🎓 <strong>Year Of Study:</strong> {/* Add logic here if needed */}</div>
+            <div className="bento-tile">🎓 <strong>Year Of Study:</strong> {/* Add logic if needed */}</div>
+        </div>
+
+        <button className="final-submit-btn" onClick={handleFinalSubmit}>
+            🚀 Submit Final Application
+        </button>
+
+        <div className="credit-box">
+            Created by <strong>AbuHamza</strong>, <strong>Arnav Ferreira</strong> and <strong>Zebin Anil</strong>
         </div>
         </div>
     </div>
