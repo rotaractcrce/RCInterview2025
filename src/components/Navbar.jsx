@@ -22,8 +22,8 @@ margin-left: -40px;
 
 const Logo = styled.img`
 height: 120px;
-margin-right: -15px;
-margin-left: 0px;
+margin-right: 05px;
+margin-left: 30px;
 `;
 
 const Title = styled(Link)`

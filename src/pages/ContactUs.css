@@ -1,0 +1,129 @@
+/* 🔷 Main Container */
+.contact-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem;
+    margin: 2rem;
+    border: 2px dashed white;
+    border-radius: 8px;
+    color: #fefae0;
+    background-image: url('../assets/bg-contact.jpeg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    height: 700px;
+}
+
+/* 🔹 Blue Overlay */
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 38, 57, 0.924);
+    z-index: 0;
+}
+
+/* 🔹 Layer above overlay */
+.contact-left,
+.contact-right {
+    position: relative;
+    z-index: 1;
+}
+
+/* 🧾 Left Section: Contact Details (40%) */
+.contact-left {
+    flex: 0 0 40%;
+    padding-right: 2rem;
+}
+
+.contact-title {
+    font-size: 36px;
+    color: #bc6c25;
+    margin-bottom: 2rem;
+}
+
+.contact-block {
+    margin-bottom: 1.5rem;
+}
+
+.contact-role {
+    font-size: 20px;
+    margin-bottom: 0.2rem;
+}
+
+.contact-number {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+}
+
+/* 📲 Social Links */
+.club-contact {
+    margin-top: 1.5rem;
+}
+
+.social-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+.icon {
+    color: #bc6c25;
+}
+
+/* 🖼️ Right Section: Logo + Map (60%) */
+.contact-right {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* 🌀 Logo + Map Layout */
+.logo-map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Enlarged Logo */
+.contact-logo {
+    width: 150px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* 🗺️ Map */
+.map-embed {
+    width: 500px;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000050;
+}
+
+/* 🖋️ Footer Credits */
+.credit-box {
+    text-align: center;
+    border-top: 2px solid #ff568e;
+    background-color: #7f2031b4;
+    padding: 1rem;
+    font-size: 14px;
+    color: #fefae0;
+    font-weight: bold;
+}
+
+.credit-box strong {
+    color: #ff568e;
+    font-size: 18px;
+}
