@@ -1,0 +1,149 @@
+.form-wrapper {
+    background: rgba(26, 38, 57, 0.85);
+    border: 2px solid #7f2032;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #fefae0;
+    box-shadow: 0 0 15px #7f2032;
+    animation: fadeIn 0.5s ease;
+    backdrop-filter: blur(0px);
+}
+
+.form-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fefae0;
+}
+
+.form-subheading {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    background: #ffffff00;
+    color: #fefae0;
+    margin-bottom: 20px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    font-size: 16px;
+    color: #fefae0;
+}
+
+.next-button {
+    background-color: #7f2032;
+    color: #fefae0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #bc6c25;
+    box-shadow: 0 0 10px #bc6c25;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.form-wrapper {
+    z-index: 9999;
+    position: relative;
+    pointer-events: auto;
+}
+
+.form-textarea,
+.radio-group,
+.next-button {
+    z-index: 9999;
+    position: relative;
+    pointer-events: auto;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fefae0;
+    user-select: none;
+}
+
+.radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkmark box */
+.radio-group label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #fefae0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Checkmark tick when selected */
+.radio-group input[type="radio"]:checked + label::after {
+    content: "✔";
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #7f2032;
+    font-weight: bold;
+    animation: tickPop 0.3s ease;
+    margin: auto;
+}
+
+/* Tick animation */
+@keyframes tickPop {
+    0% {
+    transform: scale(0.2);
+    opacity: 0;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+}
+  

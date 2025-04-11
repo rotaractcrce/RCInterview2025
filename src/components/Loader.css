@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+.loader-body {
+width: 100vw;
+height: 100vh;
+background-color: #7f2032;
+overflow: hidden;
+}
+
+.loading-screen {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #7f2032;
+color: #1a2639;
+pointer-events: none;
+z-index: 1000;
+}
+
+html, 
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-color: #7f2032;
+
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #7f2032;
+    color: #1a2639;
+    pointer-events: none;
+}
+
+.counter {
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    display: flex;
+    height: 100px;
+    font-size: 100px;
+    line-height: 102px;
+    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+    font-weight: 400;
+}
+
+.counter-1,
+.counter-2,
+.counter-3 {
+    position: relative;
+    top: -15px;
+}
+
+.num1offset1 {
+    position: relative;
+    right: -25px;
+}
+
+.num1offset2 {
+    position: relative;
+    right: -10px;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background: #7f2032;
+
+}
+
+.loader-text {
+    font-size: 14vw;
+    color: #7f2032;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.loader-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #1a2639;
+    overflow: hidden;
+    animation: animateLoaderText 6s linear forwards;
+}
+
+@keyframes animateLoaderText {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.website-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7f2032;
+}
+
+.header {
+    position: relative;
+    width: max-content;
+    height: max-content;
+}
+
+.h1 {
+    display: flex;
+    color: #fff;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+.header .h1 h1 {
+    text-align: center;
+    position: relative;
+    top: 80px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.header-revealer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header-revealer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105%;
+    height: 110%;
+    background: #7f2032;
+    top: 80px;
+} 
