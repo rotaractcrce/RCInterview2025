@@ -10,6 +10,9 @@ import SeniorCouncil from "./pages/SeniorCouncil";
 import SummaryPage from './components/FormSummary';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
+import Login from './pages/login'
+import Admin from './pages/adminDasboard'
+import User from './pages/userDashboard'
 
 const Container = styled.div`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -56,12 +59,15 @@ function App() {
         <Navbar />
         <ContentWrapper>
           <Routes>
-            <Route path="/" element={<Checkbox />} />
+            <Route path="/" element={<Login />} />
             <Route path="/junior" element={<JuniorCouncil />} />
+            <Route path="/Checkbox" element={<Checkbox />} />
             <Route path="/senior" element={<SeniorCouncil />} />
             <Route path="/summary" element={<SummaryPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/dashboard" element={<User />} />
           </Routes>
         </ContentWrapper>
       </Container>

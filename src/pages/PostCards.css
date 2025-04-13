@@ -168,3 +168,61 @@
     }
 }
 
+/* Add this at the end of your PostCards.css */
+@media (max-width: 768px) {
+    .card {
+      overflow-x: auto;
+      height: auto;
+      flex-wrap: nowrap;
+      max-height: none;
+      padding: 0.5em 0;
+      scrollbar-width: thin;
+      scrollbar-color: #ff568e transparent;
+    }
+  
+    .card::-webkit-scrollbar {
+      height: 6px;
+    }
+  
+    .card::-webkit-scrollbar-thumb {
+      background-color: #ff568e;
+      border-radius: 10px;
+    }
+  
+    .card p {
+      flex: 0 0 auto;
+      min-width: 120px;
+      height: 100px;
+    }
+  
+    .card p span {
+      transform: rotate(0);
+      min-width: auto;
+      font-size: 0.8rem;
+      padding: 0.3em;
+    }
+  
+    .card p.active {
+      flex: 0 0 auto;
+      width: auto;
+      background: #2e2e2e;
+    }
+  
+    .inline-posts {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .post-chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+    }
+  
+    .selected-posts {
+      width: 100%;
+      font-size: 0.85rem;
+    }
+  }
+   
+  
+  

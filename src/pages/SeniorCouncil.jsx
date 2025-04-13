@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './JuniorCouncil.css';
 import PostCards from './PostCardsSC';
 import ApplyButton from '../components/Button';
-import FormSummaryOverlay from '../components/FormSummary'; // ✅ correct import
+import FormSummaryOverlaySC from '../components/FormSummarySC'; // ✅ correct 
 import { FaInstagram, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 
-const JuniorCouncil = () => {
+
+
+const SeniorCouncil = () => {
+const email = localStorage.getItem('userEmail');
 const [formData, setFormData] = useState({
     name: '',
     stream: '',
@@ -14,19 +17,29 @@ const [formData, setFormData] = useState({
     instagram: '',
     linkedin: '',
     github: '',
+    documents: [],
+    selectedYear: '2025',
+    email: email || '',
 });
+
 
 const [selectedCards, setSelectedCards] = useState([]);
 const [postText, setPostText] = useState('');
 const [experienceText, setExperienceText] = useState('');
 const [errors, setErrors] = useState({});
 const [showSummary, setShowSummary] = useState(false); // ✅ show overlay
+const fileInputRef = useRef(null);
 
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: '' }));
 };
+
+const handleFileChange = (e) => {
+    const { files } = e.target;
+    setFormData((prev) => ({ ...prev, documents: Array.from(files) }));
+  };
 
 const handleBlur = (e) => {
     const { name, value } = e.target;
@@ -35,20 +48,84 @@ const handleBlur = (e) => {
     }
 };
 
-const handleApplyClick = () => {
-    // You can also add validation here
+const handleFileRemove = (indexToRemove) => {
+    setFormData((prev) => {
+      const updatedDocs = prev.documents.filter((_, i) => i !== indexToRemove);
+      if (updatedDocs.length === 0 && fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+      return { ...prev, documents: updatedDocs };
+    });
+  };
+  
+  
+//in case of backend failure of zebin use this code and un commment it
+// const handleApplyClick = () => {
+//     // from validation over here on submit baki sab
+//     const { name, stream, dob, whatsapp, instagram, linkedin, github, documents } = formData;
+
+//     console.log(documents);
+
+//     if (
+//         !name || !stream || !dob ||
+//         !whatsapp || !instagram || !linkedin || !github ||
+//         selectedCards.length !== 3 ||
+//         !postText.trim() || !experienceText.trim() ||
+//         formData.documents.length === 0
+//       ) {
+//         alert("Please fill all fields and select all 3 preferences.");
+//         return;
+//       }
+      
+//     setShowSummary(true);
+// };
+
+const flashError = (name) => {
+    const input = document.querySelector(`[name="${name}"]`);
+    const target = input || document.querySelector(`label[name="${name}"]`);
+    if (target) {
+      target.classList.add('flash-error');
+      setTimeout(() => target.classList.remove('flash-error'), 1500);
+    }
+  };
+  
+  
+  const handleApplyClick = () => {
+    const {
+      name, stream, dob, whatsapp,
+      instagram, linkedin, github, documents
+    } = formData;
+  
+    const emptyFields = [];
+  
+    if (!name) emptyFields.push('name');
+    if (!stream) emptyFields.push('stream');
+    if (!dob) emptyFields.push('dob');
+    if (!whatsapp) emptyFields.push('whatsapp');
+    if (!instagram) emptyFields.push('instagram');
+    if (!linkedin) emptyFields.push('linkedin');
+    if (!github) emptyFields.push('github');
+    if (selectedCards.length !== 3) emptyFields.push('cards');
+    if (!postText.trim()) emptyFields.push('postText');
+    if (!experienceText.trim()) emptyFields.push('experienceText');
+    if (documents.length === 0) emptyFields.push('documents');
+    
+  
+    if (emptyFields.length > 0) {
+      emptyFields.forEach(f => flashError(f));
+      return;
+    }
+  
     setShowSummary(true);
-};
+  };
+  
 
 const closeSummary = () => setShowSummary(false);
-
-const [uploadedFiles, setUploadedFiles] = useState([]);
-
 
 return (
     <div className="junior-wrapper">
     {showSummary && (
-        <FormSummaryOverlay
+        <FormSummaryOverlaySC
         formData={formData}
         selectedCards={selectedCards}
         postText={postText}
@@ -85,8 +162,7 @@ return (
             <option value="">Select Stream</option>
             <option value="CompsA">Computer Science A</option>
             <option value="CompsB">Computer Science B</option>
-            <option value="CompsC">Computer Science C</option>
-            <option value="CSE">CSE</option>
+            <option value="AIDS">Artificial Intelligence and Data Science</option>
             <option value="ECS">ECS</option>
             <option value="Mech">Mechanical</option>
             </select>
@@ -108,16 +184,29 @@ return (
 
         {/* Optional fields */}
         <div className="optional-grid">
-            <div className="floating-input">
+        <div className="floating-input">
             <FaWhatsapp className="icon" />
             <input
-                type="text"
+                type="tel"
                 name="whatsapp"
                 value={formData.whatsapp}
                 onChange={handleChange}
+                onBlur={() =>
+                setErrors((prev) => ({
+                    ...prev,
+                    whatsapp: /^\d{10}$/.test(formData.whatsapp) ? '' : 'Enter a valid 10-digit number',
+                }))
+                }
+                className={errors.whatsapp ? 'error' : ''}
+                pattern="\d{10}"
+                maxLength={10}
+                inputMode="numeric"
+                required
             />
             <label className={formData.whatsapp ? 'filled' : ''}>WhatsApp</label>
-            </div>
+            {errors.whatsapp && <span className="error-message">{errors.whatsapp}</span>}
+        </div>
+
             <div className="floating-input">
             <FaInstagram className="icon" />
             <input
@@ -151,37 +240,26 @@ return (
         </div>
 
         <div className="file-buttons">
-            <label className="file-label resume-upload">
-                Upload Resume & SOP
-                <input
-                type="file"
-                accept=".pdf"
-                multiple
-                onChange={(e) => {
-                    const newFiles = Array.from(e.target.files);
-                    setUploadedFiles((prevFiles) => [...prevFiles, ...newFiles]);
-
-                    // Reset input value to allow re-uploading same file again
-                    e.target.value = null;
-                }}
-                />
-
-
-            </label>
+        <label className="file-label resume-upload" name="documents">
+        Upload Resume
+        <input
+            type="file"
+            multiple
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.txt"
+            onChange={handleFileChange}
+            ref={fileInputRef}
+        />
+        </label>
 
             {/* Show list of uploaded files */}
             <div className="file-name-list">
-            {uploadedFiles.map((file, index) => (
+            {formData.documents.map((file, index) => (
                 <div key={index} className="file-entry">
                 📄 {file.name}
                 <span
                     className="remove-file"
-                    onClick={() => {
-                    setUploadedFiles((prev) =>
-                        prev.filter((_, i) => i !== index)
-                    );
-                    }}
-                >
+                    onClick={() => handleFileRemove(index)}
+                    >
                     ❌
                 </span>
                 </div>
@@ -189,36 +267,41 @@ return (
             </div>
 
 
-            <a
-                href="/pdfs/PostDescription.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="file-label view-post"
-            >
-                View Post Description
-            </a>
+            <div onClick={() => window.open('/PostDescription.pdf', '_blank')} className="file-label view-post">
+    View Post Description
+</div>
+
         </div>
 
         </form>
 
+
         <PostCards selectedCards={selectedCards} setSelectedCards={setSelectedCards} />
+
+        {selectedCards.length !== 3 && (
+        <p className="error-message">Please select exactly 3 preferences.</p>
+        )}
+
         <div onClick={handleApplyClick}>
         <ApplyButton />
         </div>
-        </div>
+    </div>
 
     <div className="form-right">
-        <h2 className="right-heading">Which post are you applying for and why?</h2>
+        <h2 className="right-heading">Why do you all think you’d crush it in these roles, and what’s got you excited to apply? </h2>
         <textarea
         className="top"
+        name="postText"
         value={postText}
         onChange={(e) => setPostText(e.target.value)}
         placeholder="Your answer..."
         rows="6"
         />
-        <h3 className="right-heading">Past Experience</h3>
+        <h3 className="right-heading">Got any cool past experiences that’ll help you rock this role? Spill the beans
+        </h3>
         <textarea
         className="bottom"
+        name="experienceText"
         value={experienceText}
         onChange={(e) => setExperienceText(e.target.value)}
         placeholder="Mention any relevant experience..."
@@ -229,4 +312,4 @@ return (
 );
 };
 
-export default JuniorCouncil;
+export default SeniorCouncil;

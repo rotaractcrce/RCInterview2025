@@ -115,7 +115,7 @@
 /* 🖋️ Footer Credits */
 .credit-box {
     text-align: center;
-    border-top: 2px solid #ff568e;
+    border-top: 2px solid #bc6c25;
     background-color: #7f2031b4;
     padding: 1rem;
     font-size: 14px;
@@ -126,4 +126,70 @@
 .credit-box strong {
     color: #ff568e;
     font-size: 18px;
+}
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        height: auto;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    /* Left Section */
+    .contact-left {
+        flex: 0 0 100%;
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    /* Right Section */
+    .contact-right {
+        flex: 0 0 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Map */
+    .map-embed {
+        width: 100%;
+        height: 250px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .contact-role {
+        font-size: 18px;
+    }
+
+    .contact-number {
+        font-size: 14px;
+    }
+
+    .social-line {
+        font-size: 14px;
+    }
+
+    /* Credit Box */
+    .credit-box {
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+
+    .credit-box strong {
+        font-size: 16px;
+    }
+}
+
+.club-contact a{
+    text-decoration: none;
+    color: #fefae0;
+}
+
+.club-contact a:hover{
+    color: #bc6c25;
+    
 }

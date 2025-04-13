@@ -25,10 +25,9 @@ const handleNext = () => {
 
 return (
     <div className="form-wrapper">
-    <h1 className="form-heading">Resume? Nah. Real Me</h1>
+    <h1 className="form-heading">Your Story > Your Resume</h1>
     <h2 className="form-subheading">
-        This ain’t LinkedIn. This is the part where you tell us what makes <em>you</em> YOU.
-    </h2>
+    We want to know the real you. What makes you interesting, weird, fun, different? Drop the formalities and tell us who you really are.</h2>
 
     <textarea
         className="form-textarea"

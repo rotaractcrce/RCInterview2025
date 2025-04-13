@@ -1,0 +1,177 @@
+/* Main Dashboard Container */
+.dashboard-container {
+    min-height: 100vh;
+    /* padding: 2rem; */
+    font-family: "Poppins", sans-serif;
+    color: #fefae0;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Logout Button */
+.dashboard-header button {
+    padding: 0.6rem 1.2rem;
+    background-color: #ff568e;
+    color: #1a2639;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.dashboard-header button:hover {
+    background-color: #1a2639;
+    color: #ff568e;
+    border: 1px solid #ff568e;
+}
+
+/* Bento Grid for Application Info */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+/* Bento Box for Each Info Item */
+.bento-box {
+    background-color: rgba(126, 32, 50, 0.8);
+    border: 2px dashed #fefae0;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(255, 250, 224, 0.2);
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bento-box:hover {
+    transform: scale(1.02);
+}
+
+/* Bento Box Wide Style */
+.bento-box.wide {
+    grid-column: span 2;
+}
+
+/* Document List Styling */
+.doc-list {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.doc-list li a {
+    color: #ffe8b6;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.doc-list li a:hover {
+    text-decoration: underline;
+    color: #fdd9a0;
+}
+
+/* Empty Dashboard Message */
+.dashboard-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    color: #ffcfcf;
+    font-style: italic;
+}
+
+/* Loading Message */
+.dashboard-loading {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 4rem;
+    font-size: 1.3rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Adjust dashboard header for smaller screens */
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-header button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Bento Grid for smaller screens */
+    .bento-grid {
+        grid-template-columns: 1fr; /* Stack items vertically */
+    }
+
+    /* Bento Box Styles for mobile */
+    .bento-box {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+    }
+
+    /* Wide Bento Box on mobile */
+    .bento-box.wide {
+        grid-column: span 1;
+    }
+
+    /* Document List Items */
+    .doc-list li a {
+        font-size: 0.8rem;
+    }
+
+    /* Empty State Message */
+    .dashboard-empty {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for smaller mobile screens */
+    .dashboard-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .dashboard-header button {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .bento-box {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+
+    .bento-box.wide {
+        grid-column: span 1;
+    }
+
+    .doc-list li a {
+        font-size: 0.75rem;
+    }
+
+    .dashboard-loading, .dashboard-empty {
+        font-size: 1rem;
+    }
+}

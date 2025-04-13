@@ -8,16 +8,19 @@ const [isChecked, setIsChecked] = useState(false);
 
 const handleCheckboxChange = () => {
     setIsChecked(prev => !prev);
+
 };
+
+
 
 return (
     <StyledWrapper>
-    <div>
+    <div >
         <div className="grid-plane" />
         <div className="stars-container">
+        {/* <div className="star-layer" />
         <div className="star-layer" />
-        <div className="star-layer" />
-        <div className="star-layer" />
+        <div className="star-layer" /> */}
         </div>
 
         <div className="checkbox-container">
@@ -77,71 +80,7 @@ return (
 
 
 const StyledWrapper = styled.div`
-.stars-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    perspective: 500px;
-    transform-style: preserve-3d;
-}
 
-
-.star-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    background-color#{1a2639};
-}
-
-.star-layer:nth-child(1) {
-    transform: translateZ(-50px);
-    animation: star-drift 150s linear infinite;
-}
-
-.star-layer:nth-child(2) {
-    transform: translateZ(-100px);
-    animation: star-drift 200s linear infinite reverse;
-    opacity: 0.6;
-}
-
-.star-layer:nth-child(3) {
-    transform: translateZ(-200px);
-    animation: star-drift 250s linear infinite;
-    opacity: 0.4;
-}
-
-@keyframes star-drift {
-    0% {
-    transform: translateZ(-50px) translateY(0);
-    }
-    100% {
-    transform: translateZ(-50px) translateY(100%);
-    }
-}
-
-.star-layer::before,
-.star-layer::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.star-layer:nth-child(1)::before {
-    background-image: radial-gradient(1px 1px at 10% 10%, white 100%, transparent),
-    radial-gradient(1px 1px at 20% 20%, white 100%, transparent),
-    radial-gradient(2px 2px at 30% 30%, white 100%, transparent),
-    radial-gradient(1px 1px at 40% 40%, white 100%, transparent),
-    radial-gradient(2px 2px at 50% 50%, white 100%, transparent),
-    radial-gradient(1px 1px at 60% 60%, white 100%, transparent),
-    radial-gradient(2px 2px at 70% 70%, white 100%, transparent),
-    radial-gradient(1px 1px at 80% 80%, white 100%, transparent),
-    radial-gradient(2px 2px at 90% 90%, white 100%, transparent),
-    radial-gradient(1px 1px at 15% 85%, white 100%, transparent);
-}
 
 .nebula {
     position: absolute;
@@ -154,6 +93,7 @@ const StyledWrapper = styled.div`
         rgba(63, 0, 113, 0.3) 0%,
         rgba(63, 0, 113, 0) 70%
     ),
+
     radial-gradient(
         ellipse at 70% 60%,
         rgba(0, 113, 167, 0.3) 0%,
@@ -200,15 +140,6 @@ const StyledWrapper = styled.div`
     animation: grid-move 20s linear infinite;
     opacity: 0.3;
     
-}
-
-@keyframes grid-move {
-    0% {
-    transform: perspective(500px) rotateX(60deg) translateY(0);
-    }
-    100% {
-    transform: perspective(500px) rotateX(60deg) translateY(40px);
-    }
 }
 
 .checkbox-container {
@@ -450,7 +381,7 @@ const StyledWrapper = styled.div`
 }
 
 .status-text::before {
-    content: "APPLY FOR RC-CRCE";
+    content: "APPLY FOR ROTARACT-CRCE";
     position: absolute;
     top: 0;
     left: 0;
@@ -459,7 +390,7 @@ const StyledWrapper = styled.div`
 }
 
 .holo-checkbox-input:checked ~ .status-text::before {
-    content: "APPLYING FOR RC-CRCE...";
+    content: "APPLYING FOR ROTARACT-CRCE...";
     color: #fefae0;
     text-shadow: 0 0 5px ##7f2032;
 }
@@ -845,7 +776,96 @@ const StyledWrapper = styled.div`
     top: 20px;
     left: 120px;
     animation-delay: 2.3s;
-}`;
+}
+
+@media (max-width: 768px) {
+  .nebula {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(15px); /* Adjust the blur for smaller screens */
+  }
+
+  .grid-plane {
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background-size: 30px 30px;
+  }
+
+  .checkbox-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .holo-checkbox {
+    width: 60px;
+    height: 60px;
+  }
+
+  .holo-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .holo-inner {
+    width: 25%;
+    height: 25%;
+  }
+
+  .scan-effect {
+    height: 1px;
+  }
+
+  .holo-glow {
+    width: 150%;
+    height: 150%;
+  }
+
+  .corner-accent {
+    width: 12px;
+    height: 12px;
+  }
+
+  .status-text {
+    font-size: 14px;
+  }
+
+  .activation-ring {
+    width: 30%;
+    height: 30%;
+  }
+
+  .holo-particles .holo-particle {
+    width: 2px;
+    height: 2px;
+  }
+
+  .cube-transform {
+    width: 25%;
+    height: 25%;
+  }
+
+  .cube-face {
+    border-width: 1px;
+  }
+
+  html, body {
+    height: 945px !important;
+    overflow: hidden !important;
+  }
+}
+
+html, body {
+    height: 945px !important;
+    overflow: hidden !important;
+  }
+
+`;
 
 
 export default Checkbox;

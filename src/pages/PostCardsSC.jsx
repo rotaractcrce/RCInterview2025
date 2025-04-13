@@ -5,7 +5,7 @@ const cardLabels = [
 'President',
 'Secretary',
 'Vice President',
-'Jint Secretary',
+'Joint Secretary',
 'Marketing Head',
 'Public Relations Head',
 'Sergeant At Arms',

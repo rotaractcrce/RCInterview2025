@@ -50,6 +50,22 @@
     align-items: center;
     gap: 0.5rem;
     line-height: 1.5;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    max-height: 100px; 
+    overflow: auto; 
+}
+
+.bento-tile .content {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.bento-tile a {
+    word-wrap: break-word; 
+    color: #fefae0;
+    text-decoration: none;
+    word-break: break-all; 
 }
 
 .bento-tile:hover {
@@ -112,3 +128,89 @@
     border-color: #ff568e;
     color: #ff568e;
 }
+
+.document-previews {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.document-previews a,
+.document-previews img,
+.document-previews iframe {
+    width: 100%;
+    max-width: 100%;
+    border: 1.5px solid #fefae0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #1a2639;
+    text-align: center;
+    color: #fefae0;
+    word-break: break-all;
+}
+
+
+@media (max-width: 768px) {
+    .summary-overlay {
+      align-items: flex-start;
+      padding-top: 1.5rem;
+    }
+  
+    .summary-box {
+      width: 95%;
+      max-height: 95vh;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+  
+    .summary-box h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+  
+    .bento-grid {
+      grid-template-columns: 1fr !important; /* Force single column */
+    }
+  
+    .bento-tile,
+    .bento-tile.wide {
+      grid-column: span 1 !important;
+      max-height: unset;
+    }
+  
+    .final-submit-btn {
+      width: 100%;
+      font-size: 1rem;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  
+    .close-btn {
+      font-size: 1.2rem;
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+
+    .document-previews {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+  
+    .document-previews a,
+    .document-previews img,
+    .document-previews iframe {
+        width: 100%;
+        max-width: 100%;
+        border: 1.5px solid #fefae0;
+        border-radius: 8px;
+        padding: 0.5rem;
+        background-color: #1a2639;
+        text-align: center;
+        color: #fefae0;
+        word-break: break-word;
+    }
+  }
+  

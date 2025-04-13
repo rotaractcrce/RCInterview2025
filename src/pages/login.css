@@ -1,0 +1,210 @@
+.login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;  /* Add this to stack content vertically on mobile */
+    padding-bottom: 20px;    /* Add padding to avoid overlap with footer */
+}
+
+.login-card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    height: 600px;
+    width: 1000px;
+    border: 2px solid white;
+    z-index: 9;
+}
+
+.login-left {
+    flex: 1;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-left: 25px;
+}
+
+.login-right {
+    flex: 1;
+    padding: 2.5rem;
+    color: #fefae0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.login-main-text {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.login-sub-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffdb8c;
+    margin-bottom: 8px;
+}
+
+.login-cta {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #bc6c25;
+}
+
+.google-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.google-login-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.google-login-btn img {
+    height: 20px;
+}
+
+.typewriter-text {
+    font-weight: bold;
+    color: #ffdb8c;
+}
+
+.credit-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 14px;
+    background-color: #7f2031b4;
+    border-top: 2px solid #ff568e;
+    color: #fefae0;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;  /* Add margin-top to push it below the login form */
+}
+
+.credit-box strong {
+    color: #ff568e;
+    font-size: 16px;
+}
+
+.credit-left,
+.credit-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cursor-blob {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at center, #ff568e, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    transform: translate(-50%, -50%);
+    z-index: -0;
+    transition: top 0.1s ease-out, left 0.1s ease-out;
+}
+
+@media (max-width: 768px) {
+    .login-wrapper {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        padding-bottom: 60px;  /* Increase padding on mobile to avoid overlap */
+    }
+
+    .login-card {
+        flex-direction: column;
+        width: 100%;
+        max-width: 90%;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .login-left,
+    .login-right {
+        flex: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .login-img {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 12px;
+    }
+
+    .login-main-text {
+        font-size: 22px;
+    }
+
+    .login-sub-text {
+        font-size: 16px;
+    }
+
+    .login-cta {
+        font-size: 14px;
+    }
+
+    .google-login-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .credit-box {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 12px;
+        padding: 1rem;
+        text-align: center;
+        margin-top: 30px; /* Ensure credit box has enough space below the login */
+    }
+
+    .credit-box strong {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cursor-blob {
+        display: none;
+    }
+}

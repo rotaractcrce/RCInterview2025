@@ -5,7 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 
 
-const FormSummary = ({ formData, postText, experienceText, selectedCards, onClose,}) => {
+const FormSummary = ({ formData, postText, experienceText, selectedCards, onClose, }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const handleFinalSubmit = async () => {
@@ -27,7 +27,7 @@ const FormSummary = ({ formData, postText, experienceText, selectedCards, onClos
         uploadFormData.append("upload_preset", "InterviewFiles");
         uploadFormData.append(
           "folder",
-          `interviews/juniorCouncil/${formData.name.trim().replace(/\s+/g, "_")}`
+          `interviews/seniorCouncil/${formData.name.trim().replace(/\s+/g, "_")}`
         );
 
         const res = await fetch(
@@ -54,7 +54,7 @@ const FormSummary = ({ formData, postText, experienceText, selectedCards, onClos
 
       // Create a new document ID and reference in Firestore
       const docId = `${formData.name.trim().replace(/\s+/g, "_")}_${Date.now()}`;
-      const docRef = doc(db, "juniorCouncilApplications", docId);
+      const docRef = doc(db, "seniorCouncilApplications", docId);
 
       // Store form data and document URLs in Firestore
       await setDoc(docRef, {
@@ -66,7 +66,7 @@ const FormSummary = ({ formData, postText, experienceText, selectedCards, onClos
         timestamp: new Date(),
       });
 
-      alert("Junior Council application submitted successfully!");
+      alert("Senior Council application submitted successfully!");
       navigate("/dashboard");
     } catch (err) {
       console.error("Submission failed:", err);
@@ -79,15 +79,22 @@ const FormSummary = ({ formData, postText, experienceText, selectedCards, onClos
   const renderDocumentPreviews = (documents) => {
     return documents.map((doc, index) => {
       if (doc.type.startsWith('image')) {
-        return <img key={index} src={URL.createObjectURL(doc)} alt={doc.name} width="100" height="100" />;
+        return (
+          <div key={index} style={{ marginBottom: "8px" }}>
+            <img src={URL.createObjectURL(doc)} alt={doc.name} width="100" height="100" />
+          </div>
+        );
       }
       return (
-        <a key={index} href={URL.createObjectURL(doc)} target="_blank" rel="noopener noreferrer">
-          {doc.name}
-        </a>
+        <div key={index} style={{ marginBottom: "8px" }}>
+          <a href={URL.createObjectURL(doc)} target="_blank" rel="noopener noreferrer">
+            📄 {doc.name}
+          </a>
+        </div>
       );
     });
   };
+  
 
   return (
     <>

@@ -1,7 +1,7 @@
 /* 🔷 Main About Section Container */
 .about-container {
     padding: 3rem 2rem;
-    height: 800px;
+    height: auto; /* Adjust height for better mobile handling */
     border-radius: 16px;
     border: 2px dashed white;
     color: #fefae0;
@@ -17,7 +17,7 @@
 .about-title {
     text-align: center;
     font-size: 36px;
-    color: #ff568e;
+    color: #bc6c25;
     margin-bottom: 2rem;
     text-transform: uppercase;
 }
@@ -94,7 +94,7 @@
 
 .event-card h3 {
     font-size: 18px;
-    color: #ff568e;
+    color: #bc6c25;
     margin-bottom: 0.5rem;
 }
 
@@ -121,9 +121,66 @@
     font-size: 18px;
 }
 
+/* 🖥️ Media Query for Larger Screens */
 @media (min-width: 768px) {
     .event-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .about-left,
+    .about-right {
+        flex: 1;
+        min-width: 45%;
+    }
 }
-  
+
+/* 📱 Mobile First Styles */
+@media (max-width: 768px) {
+    /* Adjust container padding */
+    .about-container {
+        padding: 2rem 1rem; /* Reduced padding for smaller screens */
+    }
+
+    /* Adjust title font size */
+    .about-title {
+        font-size: 28px; /* Smaller title font size */
+        margin-bottom: 1.5rem;
+    }
+
+    /* Adjust spacing between sections */
+    .about-sections {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 1.5rem;
+    }
+
+    /* Adjust Info Box Styles */
+    .info-box {
+        padding: 1.5rem; /* Less padding */
+    }
+
+    .info-box h2 {
+        font-size: 20px; /* Slightly smaller header size */
+    }
+
+    .info-box p {
+        font-size: 14px; /* Smaller paragraph font size */
+    }
+
+    /* Adjust event card sizes */
+    .event-card {
+        padding: 1rem; /* Smaller padding */
+    }
+
+    .event-card h3 {
+        font-size: 16px; /* Slightly smaller heading */
+    }
+
+    .event-card p {
+        font-size: 13px; /* Smaller paragraph text */
+    }
+
+    .credit-box {
+        font-size: 12px; /* Smaller font size for credits */
+        padding: 0.5rem;
+    }
+}

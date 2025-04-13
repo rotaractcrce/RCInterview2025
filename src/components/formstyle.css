@@ -56,8 +56,10 @@
 }
 
 .next-button:hover {
-    background-color: #bc6c25;
-    box-shadow: 0 0 10px #bc6c25;
+    color: #ff568e;
+
+    background-color: #1a2639;
+    box-shadow: 0 0 10px #ff568e;
 }
 
 @keyframes fadeIn {
@@ -146,4 +148,25 @@
     opacity: 1;
     }
 }
-  
+
+.error-message {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.flash-error {
+    border: 2px solid red !important;
+    animation: flashBorder 1.5s ease;
+}
+
+@keyframes flashBorder {
+    0% { border-color: red; }
+    50% { border-color: #ff4d4d; }
+    100% { border-color: initial; }
+}
+
+.file-label.flash-error {
+    border: 2px dashed red;
+    animation: flashBorder 1.5s ease;
+}
