@@ -4,7 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const adminEmails = ["apzebin@gmail.com"];
+const adminEmails = ["histeve9594@gmail.com"];
 
 export default function AdminDashboard() {
   const [seniorApplications, setSeniorApplications] = useState([]);
