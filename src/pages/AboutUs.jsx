@@ -47,7 +47,7 @@ return (
                 </p>
             </div>
             <div className="event-card">
-                <h3>Heart and Soul Run</h3>
+                <h3>Heart and Sole Run</h3>
                 <p>
                 Our flagship charity marathon that raises awareness and funds for social causes,
                 uniting people through fitness and purpose.
