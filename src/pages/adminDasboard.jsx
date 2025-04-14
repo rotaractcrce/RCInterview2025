@@ -63,6 +63,7 @@ export default function AdminDashboard() {
               <p><strong>LinkedIn:</strong> {app.linkedin}</p>
               <p><strong>GitHub:</strong> {app.github}</p>
               <p><strong>Selected Year:</strong> {app.selectedYear}</p>
+              <p><strong>Selected Cards:</strong> {app.selectedCards}</p>
 
               {app.documents && app.documents.length > 0 && (
                 <div className="mt-4">
