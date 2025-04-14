@@ -5,12 +5,12 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC0DrIGTvY0U3GgucUxisj3XBRFneE4w88",
-  authDomain: "rotaractwebsite2025-e1d60.firebaseapp.com",
-  projectId: "rotaractwebsite2025-e1d60",
-  storageBucket: "rotaractwebsite2025-e1d60.appspot.com", // ✅ Make sure .app is replaced with .app**spot.com**
-  messagingSenderId: "133087289949",
-  appId: "1:133087289949:web:88cd7ad2d1805ee8fbe3b4"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // ✅ Initialization first
