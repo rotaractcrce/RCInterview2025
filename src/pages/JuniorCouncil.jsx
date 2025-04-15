@@ -270,6 +270,11 @@ return (
         </form>
 
         <PostCards selectedCards={selectedCards} setSelectedCards={setSelectedCards} />
+
+        {selectedCards.length !== 3 && (
+        <p className="error-message">Please select exactly 3 preferences.</p>
+        )}
+
         <div onClick={handleApplyClick}>
         <ApplyButton />
         </div>
