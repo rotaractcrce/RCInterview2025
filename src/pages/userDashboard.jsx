@@ -64,10 +64,11 @@ export default function UserDashboard() {
           <div className="bento-box">📸 <strong>Instagram:</strong> {application.instagram}</div>
           <div className="bento-box">💼 <strong>LinkedIn:</strong> {application.linkedin}</div>
           <div className="bento-box">💻 <strong>GitHub:</strong> {application.github || "N/A"}</div>
+          <div className="bento-tile">🧩 <strong>Applied Posts:</strong> {application.selectedCards.join(', ')}</div>
           <div className="bento-box">🎓 <strong>Year:</strong> {application.selectedYear}</div>
           <div className="bento-box">🏷️ <strong>Council Type:</strong> {application.type}</div>
           {application.documents && application.documents.length > 0 && (
-            <div className="bento-box wide">
+            <div className="bento-box">
               📁 <strong>Documents:</strong>
               <ul className="doc-list">
                 {application.documents.map((doc, i) => (
